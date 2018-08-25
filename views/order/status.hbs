@@ -1,0 +1,9 @@
+<h1>Your orders</h1>
+<div class="orders">
+    {{#each orders}}
+    {{> order}}
+    {{else}}
+    <p >You have not orders yet.</p>
+    {{/each}}
+    <p >Total Price: {{totalPrice}}.00 lv.</p>
+</div>

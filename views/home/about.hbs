@@ -1,0 +1,23 @@
+<h1 class="all">All Doner</h1>
+<div class="sub">
+    <div class="products">
+        {{#if products.chicken}}
+        <h2>Chicken Doner</h2>
+        {{#each products.chicken}}
+        {{> doner}}
+        {{/each}}
+        {{/if}}
+        {{#if products.beef}}
+        <h2>Beef Doner</h2>
+        {{#each products.beef}}
+        {{> doner}}
+        {{/each}}
+        {{/if}}
+        {{#if products.lamb}}
+        <h2>Lamb Doner</h2>
+        {{#each products.lamb}}
+        {{> doner}}
+        {{/each}}
+        {{/if}}
+    </div>
+</div>

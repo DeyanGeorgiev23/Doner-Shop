@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Doner Place</title>
+    <link href="/css/site.css" type="text/css" rel="stylesheet">
+</head>
+<body>
+    <div class="container">
+        <header>
+            <span class="logo">Doner  Place</span>
+            {{#if currentUser}}
+            <span class="greeting">Welcome {{currentUser.firstName}} {{currentUser.lastName}}</span>
+            {{/if}}
+            <ul class="menu">
+                <form id="logout-form" action="/users/logout" method="POST"></form>
+                <li><a class="button" href="/"><img src="/img/home.png"></a></li>
+                <li><a class="button" href="/about"><img src="/img/doner.png" style="max-width:25px"></a></li>
+                {{#if currentUser}}
+                <a class="button" href="javascript:document.getElementById('logout-form').submit()" style="float:right"><img src="/img/logout.png"></a>
+                <li style="float:right"><a class="button" href="/order" >{{counter}}<img src="/img/cart.png" ></a></li>
+                {{else}}
+                <li><a class="button" href="/users/login"><img src="/img/login.png"></a></li>
+                <li><a class="button" href="/users/register"><img src="/img/register.png"></a></li>
+                {{/if}}
+                {{#if currentUser.roles}}
+                <li><a class="button" href="/product/create">Create Prodcut</a></li>
+                {{/if}}
+            </ul>
+        {{#if globalError}}
+        <h3 class="error">{{globalError}}</h3>
+        {{/if}}
+        </header>
+        <main>
+            {{{body}}}
+        </main>
+        <footer>Doner Place &copy; 2018 By DG</footer>
+    </div>
+</body>
+</html>
